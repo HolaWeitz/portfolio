@@ -52,6 +52,9 @@
             }
 
             $(window).on('resize', function () {
+                pages.each(function() {
+                    $(this).height(window.innerHeight);
+                });
                 if (background.width() < body.width()) {
                     background.removeClass('vertical');
                 } else if (background.height() < body.height()) {
