@@ -8,7 +8,7 @@
             div = $('<div class="portfolio-class"><div class="title"><span>' + data[key].name + '</span></div></div>');
             page.append(div);
             div.data('items', data[key].items);
-            if (data[key].img) div.append('<div class="img-container"><img src="' + data[key].img + '"/></div>');
+            if (data[key].img) div.append('<div class="img-container"><img src="' + data[key].img + '" alt="project image"/></div>');
             if (data[key].detail) div.append('<div class="detail-container"><span>' + data[key].detail + '</span></div>');
             if (page.find('.portfolio-class').length >= 4) {
                 container.append(page);

@@ -96,7 +96,7 @@
                 "Skilled in All Phases of Project :Concept Design(CD), Schematic Design(SD), Development Design(DD);",
                 "Professional Interest: Children Park, Health& Wellness, Campus Design.",
                 "Proficient in AutoCAD | ArcGIS | Photoshop | Illustrator | Indesign | Rhino | Grasshoper | Sketchup | Lumion 3D | Camtasia | Artlantis | Eco-tect Analysis;",
-                '<img src="images/Others/skill.png" style="width:90%;height:auto"/>'
+                '<img src="images/Others/skill.png" alt="skill image" style="width:90%;height:auto"/>'
             ]
         },
         self_evalution: {

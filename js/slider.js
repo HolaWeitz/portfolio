@@ -35,7 +35,7 @@
                     }
                 }, 100);
             } else {
-                var pic = $('<div class="picture">' + (ele.html ? ele.html : ('<img src="' + ele.thumb + '" />')) + '</div>');
+                var pic = $('<div class="picture">' + (ele.html ? ele.html : ('<img src="' + ele.thumb + '" alt="thumb image"/>')) + '</div>');
             }
     		var thumb = $('<div class="thumb"><img src="' + ele.thumb + '" /></div>');
     		if (extraFn) extraFn.apply(ele, [pic, thumb]);
