@@ -17,8 +17,8 @@
                         nav.append('<a class="logo" href="" ><img src="./icons/hua.png"></a>');
                     }
                     page = $(page);
-                    var navtag = $('<div class="nav-button button" target="' + page.attr("id") + '">' + page.attr("literal") + '</div>'),
-                        bartag = $('<div class="scroll-button button" target="' + page.attr("id") + '"><span class="round"></span><label>' + page.attr("literal") + '</label></div>');
+                    var navtag = $('<div class="nav-button button" target="' + page.attr("id") + '">' + page.attr("title") + '</div>'),
+                        bartag = $('<div class="scroll-button button" target="' + page.attr("id") + '"><span class="round"></span><label>' + page.attr("title") + '</label></div>');
                     nav.append(navtag);
                     bar.append(bartag);
                     navtag.click(function() {
