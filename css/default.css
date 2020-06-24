@@ -124,6 +124,12 @@ body.loading > div
     height:100%;
     position:relative;
 }
+.fluid-page.flex
+{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
 .unclickable
 {
     cursor:no-drop !important;

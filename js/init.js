@@ -3,8 +3,6 @@
     
     window.App = {
         init: function() {
-            window.isTouch = 'ontouchstart' in window || navigator.maxTouchPoints;
-
             var pages = $('.fluid-page'), home_slider = $('#home .slider'), resume = $('#about .resume-container'),
                 profile = $('#profile > .profile-container'), portfolio = $('#portfolio > .portfolio-container'), nav = $('.header .navigater'), bar = $('.scroller');
             pages.each(function() {
@@ -13,7 +11,11 @@
             $('a.logo').attr('href', location.protocol+'//'+location.host+location.pathname);
 
             Component.Scroll(function () {
+                var pageCenter = Math.floor(pages.length / 2);
                 pages.each(function(index, page) {
+                    if (index === pageCenter) {
+                        nav.append('<a class="logo" href="" ><img src="./icons/hua.png"></a>');
+                    }
                     page = $(page);
                     var navtag = $('<div class="nav-button button" target="' + page.attr("id") + '">' + page.attr("label") + '</div>'),
                         bartag = $('<div class="scroll-button button" target="' + page.attr("id") + '"><span class="round"></span><label>' + page.attr("label") + '</label></div>');
@@ -43,19 +45,19 @@
             });
 
             var body = $('body'), background = $('.background img');
-            if (background.height() >= body.height()) {
-                var cheight = $('.content').height() - body.height(), offset = background.height() - body.height(), r = offset / cheight;
-                $(window).on('scroll', function(e) { 
-                    background.parent().css({top: -$(this).scrollTop() * r});
-                });
-                background.parent().css({top: -$(window).scrollTop() * r});
-            } else {
+            if (background.height() < body.height()) {
+                background.removeClass('vertical');
+            } else if (background.height() < body.height()) {
                 background.addClass('vertical');
-                background.css('margin-left', (body.width() / 2 - background.width() / 2) + 'px');
             }
-            var bwidth = background.width(), ml = parseFloat(background.css('margin-left'));
-            background.height(background.height());
-            background.width(bwidth * 1.1).css('margin-left', ml - bwidth * 0.05);
+
+            $(window).on('resize', function () {
+                if (background.width() < body.width()) {
+                    background.removeClass('vertical');
+                } else if (background.height() < body.height()) {
+                    background.addClass('vertical');
+                }
+            });
 
             Component.Resume(resume, Data.resume);
             Component.Profile(profile, Data.profile);
@@ -74,15 +76,9 @@
                         opacity:0,
                         "word-spacing": "+=200",
                         "font-size": "+=2em"
-                    }, 1500 + t, function() {
+                    }, 500 + t, function() {
                         beginner.remove();
                         $('.header').removeClass('collapsed');
-                        background.animate({
-                            width: bwidth,
-                            'margin-left': ml
-                        }, 4000, function() {
-                            background.css({'width':'', 'height':''});
-                        });
                     });
                 }, t);
             }, 300);

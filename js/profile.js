@@ -36,9 +36,9 @@
         var min, maxheight, padding, margin;
         
         $('#profile').on('resize', function () {
-            margin = Math.round(container.height() / 2 - details.height() / 2 + 25);
+            margin = Math.round(container.height() / 2 - details.height() / 2 + 35);
             details.css("margin-top", margin + "px");
-            margin = Math.round(container.height() / 2 - head.height() / 2 + 25);
+            margin = Math.round(container.height() / 2 - head.height() / 2 + 45);
             head.css("margin-top", margin + "px");
         })
     

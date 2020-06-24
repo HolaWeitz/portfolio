@@ -420,7 +420,8 @@ a:link, a:visited {
     color:#444;
 }
 .resume-container,
-.portfolio-container
+.portfolio-container,
+.contact-container
 {
     width:800px;
     height:100%;

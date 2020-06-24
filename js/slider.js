@@ -100,20 +100,6 @@
         current = slidercontainer.find('.picture').eq(0).children();
     	var pictures = container.find('.picture');
 
-        var thumbs = slidernav.find('.thumb');
-        var idx;
-        Hammer(container[0]).on("swiperight", function (e) {
-            slidercontainer.stop();
-            idx = thumbs.index(slidernav.find('.thumb.clicked'));
-            if (idx > 0) thumbs.eq(idx - 1).trigger('click');
-        });
-
-        Hammer(container[0]).on("swipeleft", function () {
-            slidercontainer.stop();
-            idx = thumbs.index(slidernav.find('.thumb.clicked'));
-            if (idx < thumbs.length - 1) thumbs.eq(idx + 1).trigger('click');
-        });
-
         slidernav.find('.thumb').eq(0).trigger('click');
     }
 } ())

@@ -9,8 +9,8 @@ body
 {
     font-family: Arial, "sans-serif";
     overflow-x:hidden;
-    color:#ddd;
-    text-shadow:0px 0px 3px #222;
+    color:#eee;
+    text-shadow:0px 0px 1px #000;
     padding:0px;
     margin:0px;
     height:100%;
@@ -167,6 +167,7 @@ a:link, a:visited {
     opacity:0.7;
     -webkit-transition: opacity 1s; /* Safari */
     transition: opacity 1s;
+    vertical-align: top;
 }
 .navigater > .nav-button.active, .navigater > .nav-button:hover
 {
@@ -257,8 +258,6 @@ a:link, a:visited {
     bottom:0px;
     left:0px;
     width:100%;
-    height:60px;
-    white-space:nowrap;
     text-align:center;
     z-index:100;
     opacity:0.4;
@@ -266,6 +265,8 @@ a:link, a:visited {
     transition-delay: 2s;
     -webkit-transition: opacity 1s;
     transition: opacity 1s;
+    display: flex;
+    flex-wrap: wrap;
 }
 .silder-navigator:hover
 {
@@ -287,6 +288,10 @@ a:link, a:visited {
     transition-delay: 1s;
     -webkit-transition: margin-top 1s;
     transition: margin-top 1s;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+}
 }
 .silder-navigator > .thumb.clicked
 {
@@ -374,47 +379,48 @@ a:link, a:visited {
 }
 .picture .info
 {
-    position:absolute;
-    bottom:80px;
-    right:5%;
-    display:none;
-    width:auto;
-    max-width:70%;
-    max-height:80%;
+    position: absolute;
+    bottom: 80px;
+    right: 5%;
+    width: auto;
+    max-width: 70%;
+    max-height: 80%;
     white-space: normal;
-    color:white;
-    background-color:rgba(0,0,0,0.3);
-    padding:10px;
-    box-shadow: 0px 0px 3px rgba(30,30,30,0.4);
+    color: white;
+    background-color: rgba(0,0,0,0.7);
+    padding: 1em 1.5em;
+    box-shadow: 0px 0px 3px rgba(255,255,255,0.4);
+    transition: all 0.5s;
+    visibility: hidden;
+    opacity:0;
 }
 .picture:not(.played):hover .info
 {
-    display:inline-block;
+    visibility: visible;
+    opacity:1;
 }
 .profile-container
 {
     width:90%;
-    min-width:800px;
     height:100%;
     margin: 0 auto;
     white-space: nowrap;
     overflow-x: hidden;
     white-space: nowrap;
+    display: flex;
 }
 .profile-container > *
 {
     display:inline-block;
     vertical-align: top;
-    width:49%;
 }
 .profile-head
 {
-    margin-left:1%;
     text-align: right;
 }
 .profile-head > img
 {
-    height:70%;
+    height:40%;
     border-radius: 50% 50% 50% 50%;
     box-shadow: 0px 0px 20px #666;
 }
@@ -459,7 +465,7 @@ a:link, a:visited {
 {
     display:inline-block;
 }
-.profile-container > .details > .network .linkedin
+.profile-container > .details .linkedin
 {
     width:30px;
     height:30px;
@@ -474,20 +480,20 @@ a:link, a:visited {
 .details-controller
 {
     padding:5px 0px;
-    display:table;
+    display: flex;
+    white-space: break-spaces;
+    flex-wrap: wrap;
 }
 .controller-button
 {
     display:inline-block;
-    padding:5px 15px;
-    width:180px;
+    padding:.5em 1em;
     background:#ddd;
     color:#444;
     cursor: pointer;
     text-align: center;
-    display: table-cell;
-    width: 33%;
     text-shadow:none;
+    font-size: 0.75em;
 }
 .controller-button:not(:last-child)
 {
@@ -495,7 +501,7 @@ a:link, a:visited {
 }
 .controller-button:hover, .controller-button.clicked
 {
-    background:#1589FF;
+    background:#000;
     color:#eee;
 }
 .details-container .detail-content
@@ -528,7 +534,8 @@ a:link, a:visited {
     color:#eee;
 }
 .resume-container,
-.portfolio-container
+.portfolio-container,
+.contact-container
 {
     max-width:100%;
     height:100%;
@@ -547,6 +554,30 @@ a:link, a:visited {
     box-shadow: 0px 0px 2px #888;
     color:#ddd;
     padding:8px 20px;
+}
+.contact-container {
+    text-align: center;
+    flex: 1;
+    height: 10em;
+    font-size: 2em;
+    color: white;
+    text-shadow: none;
+}
+.contact-container .contact-btn {
+    display: inline-block;
+    position: relative;
+    padding: .8rem 1.6rem;
+    font-weight: 700;
+    line-height: 1;
+    z-index: 1;
+    -webkit-transition: all .6s cubic-bezier(.19,1,.22,1);
+    transition: all .6s cubic-bezier(.19,1,.22,1);
+    border: 1px solid #fff;
+}
+.contact-container .contact-btn:hover {
+    background-color: #fff;
+    text-decoration: none;
+    color: #444;
 }
 .download-pdf:hover
 {
@@ -795,13 +826,17 @@ a:link, a:visited {
 {
     padding:5px;
 }
-.contact-container
-{
-    width:800px;
-    height:400px;
-    margin:100px auto;
-    font-size:24px;
-    padding:40px;
-    border: 1px dashed black;
-    border-radius: 10px;
+
+@media only screen and (max-width: 600px) {
+    .profile-head {
+        display: none;
+    }
+    .img-container {
+        width: 100%;
+        height: auto;
+    }
+    .portfolio-slider > .img-container > img {
+        width: 100%;
+        height: auto;
+    }
 }

@@ -56,16 +56,6 @@
             var len = container.find('.portfolio-page').length;
             page_controller.find('.round').eq((idx - 1 + len) % len).trigger('click');
         });
-
-        if (window.isTouch) {
-            Hammer(container[0]).on("swiperight", function () {
-                container.find('.backward-button').trigger('click');
-            });
-
-            Hammer(container[0]).on("swipeleft", function () {
-                container.find('.forward-button').trigger('click');
-            }); 
-        }
         
         container.append(page_controller);
         container.addClass('runtime');

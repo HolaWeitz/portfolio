@@ -121,13 +121,5 @@
                 container.removeClass('seeking');
             });
         });
-
-        Hammer(container[0]).on("swiperight", function () {
-            container.find('.backward-button').trigger('click');
-        });
-
-        Hammer(container[0]).on("swipeleft", function () {
-            container.find('.forward-button').trigger('click');
-        });
     }
 } ())
