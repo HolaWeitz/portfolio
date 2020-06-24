@@ -16,30 +16,30 @@
     	});
 
         if (isiPad) {
-            var scrollTop = 0, st, isscrolling = false, idx;
-            $(window).on('scroll', function(e) { 
-                e.preventDefault();
-                if (isscrolling == false) {
-                    isscrolling = true;
-                    st = $(this).scrollTop();
+            // var scrollTop = 0, st, isscrolling = false, idx;
+            // $(window).on('scroll', function(e) { 
+            //     e.preventDefault();
+            //     if (isscrolling == false) {
+            //         isscrolling = true;
+            //         st = $(this).scrollTop();
 
-                    $('body').stop();
+            //         $('body').stop();
 
-                    idx = $('.navigater .nav-button').index($('.navigater .nav-button.active'));
+            //         idx = $('.navigater .nav-button').index($('.navigater .nav-button.active'));
 
-                    if (st < scrollTop) {
-                        if (idx > 0) $('.navigater .nav-button').eq(idx - 1).trigger('click');
-                    } else {
-                        if (idx < $('.navigater .nav-button').length - 1) $('.navigater .nav-button').eq(idx + 1).trigger('click');
-                    }
+            //         if (st < scrollTop) {
+            //             if (idx > 0) $('.navigater .nav-button').eq(idx - 1).trigger('click');
+            //         } else {
+            //             if (idx < $('.navigater .nav-button').length - 1) $('.navigater .nav-button').eq(idx + 1).trigger('click');
+            //         }
 
-                    scrollTop = st;
-                    setTimeout(function () {
-                        isscrolling = false;
-                    }, 1000);
-                }
-                return false;
-            });
+            //         scrollTop = st;
+            //         setTimeout(function () {
+            //             isscrolling = false;
+            //         }, 1000);
+            //     }
+            //     return false;
+            // });
         }
 
     	$(document).keydown(function(event) {
